@@ -54,7 +54,5 @@ export const getLaunches = async () => {
     launches.push(temp);
   }
 
-  console.log(launches);
-
   return launches;
 };

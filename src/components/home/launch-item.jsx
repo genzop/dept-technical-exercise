@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
-import classes from "./launch-item.module.scss";
+import LaunchesContext from "../../store/launches-context";
 import { unixDateToString } from "./../../services/dates";
+
+import classes from "./launch-item.module.scss";
 
 const LaunchItem = (props) => {
   const { item } = props;
+
+  const launchContext = useContext(LaunchesContext);
+
+  const [favourite, setFavourite] = useState(
+    launchContext.isFavourite(item.flight_number)
+  );
+
+  const onClickFavourite = () => {
+    setFavourite(!favourite);
+    launchContext.toggleFavourite(item.flight_number, !favourite);
+  };
 
   return (
     <div className={classes.launchItem}>
@@ -17,8 +30,9 @@ const LaunchItem = (props) => {
           <div className={classes.date}>
             {unixDateToString(item.launch_date_unix)}
           </div>
-          <div className={classes.favourite}>
-            <BsStar />
+          <div className={classes.favourite} onClick={onClickFavourite}>
+            {!favourite && <BsStar />}
+            {favourite && <BsStarFill />}
           </div>
         </div>
       </div>

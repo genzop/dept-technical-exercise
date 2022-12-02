@@ -8,6 +8,8 @@ const LaunchesContext = createContext({
   updateSection: (value) => {},
   updateFilter: (value) => {},
   updateList: (value) => {},
+  isFavourite: (flightNumber) => {},
+  toggleFavourite: (flightNumber, isFavourite) => {},
 });
 
 export function LaunchesContextProvider(props) {
@@ -31,6 +33,34 @@ export function LaunchesContextProvider(props) {
     setTotal(value.length);
   };
 
+  const isFavourite = (flightNumber) => {
+    let saved = localStorage.getItem("favourites");
+    saved = !saved ? [] : JSON.parse(saved);
+
+    const index = saved.indexOf(flightNumber);
+    if (index > -1) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const toggleFavourite = (flightNumber, isFavourite) => {
+    let saved = localStorage.getItem("favourites");
+    saved = !saved ? [] : JSON.parse(saved);
+
+    const index = saved.indexOf(flightNumber);
+    if (index > -1) {
+      saved.splice(index, 1);
+    }
+
+    if (isFavourite) {
+      saved.push(flightNumber);
+    }
+
+    localStorage.setItem("favourites", JSON.stringify(saved));
+  };
+
   const context = {
     section: section,
     filter: filter,
@@ -39,6 +69,8 @@ export function LaunchesContextProvider(props) {
     updateSection: updateSection,
     updateFilter: updateFilter,
     updateList: updateList,
+    isFavourite: isFavourite,
+    toggleFavourite: toggleFavourite,
   };
 
   return (
