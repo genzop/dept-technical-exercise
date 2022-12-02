@@ -3,8 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { getLaunches } from "./../../services/spacex";
 import LaunchesContext from "../../store/launches-context";
 
-import LaunchList from "./launch-list";
 import Header from "./header";
+import Filters from "./filters";
+import LaunchList from "./launch-list";
 
 import classes from "./index.module.scss";
 
@@ -23,6 +24,7 @@ const Home = () => {
   return (
     <div className={classes.home}>
       <Header />
+      <Filters />
       <LaunchList />
     </div>
   );

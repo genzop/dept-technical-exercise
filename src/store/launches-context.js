@@ -3,7 +3,6 @@ import React, { createContext, useState } from "react";
 const LaunchesContext = createContext({
   section: "",
   filter: "",
-  total: 0,
   list: [],
   updateSection: (value) => {},
   updateFilter: (value) => {},
@@ -15,7 +14,6 @@ export function LaunchesContextProvider(props) {
   // State
   const [section, setSection] = useState("all");
   const [filter, setFilter] = useState("");
-  const [total, setTotal] = useState(0);
   const [list, setList] = useState([]);
 
   // Methods
@@ -29,7 +27,6 @@ export function LaunchesContextProvider(props) {
 
   const updateList = (value) => {
     setList(value);
-    setTotal(value.length);
   };
 
   const toggleFavourite = (value) => {
@@ -56,7 +53,6 @@ export function LaunchesContextProvider(props) {
   const context = {
     section: section,
     filter: filter,
-    total: total,
     list: list,
     updateSection: updateSection,
     updateFilter: updateFilter,
