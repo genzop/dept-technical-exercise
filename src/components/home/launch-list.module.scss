@@ -1,0 +1,19 @@
+.launchList {
+  .total {
+    font-size: 22px;
+    color: #020202;
+    margin: 30px 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 41px;
+    column-gap: 41px;
+
+    > * {
+      width: calc(33% - 24px);
+    }
+  }
+}

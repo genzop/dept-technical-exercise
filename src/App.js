@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./styles/globals.scss";
 import HomePage from "./pages/home";
-import FavouritesPage from "./pages/favourites";
 import LaunchPage from "./pages/launch";
 
 const App = () => {
@@ -11,10 +10,6 @@ const App = () => {
     {
       path: "/",
       element: <HomePage />,
-    },
-    {
-      path: "/favourites",
-      element: <FavouritesPage />,
     },
     {
       path: "/launch/:launchId",

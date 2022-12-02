@@ -1,0 +1,30 @@
+.header {
+  .title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    border-bottom: 1px solid black;
+
+    .section {
+      padding: 10px;
+      cursor: pointer;
+      margin-bottom: -3px;
+      text-align: center;
+      letter-spacing: 0.15px;
+      text-transform: uppercase;
+      color: #020202;
+      font-weight: 600;
+      width: 120px;
+
+      &.active {
+        border-bottom: 3px solid black;
+      }
+    }
+  }
+}

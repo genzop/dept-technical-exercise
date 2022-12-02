@@ -1,18 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { getLaunches } from "./../services/spacex";
+import { LaunchesContextProvider } from "./../store/launches-context";
+
+import Home from "./../components/home/index";
+import Navbar from "./../components/ui/navbar";
 
 const HomePage = () => {
-  useEffect(() => {
-    async function getData() {
-      const launches = await getLaunches();
-      console.log(launches);
-    }
-
-    getData();
-  }, []);
-
-  return <div>Home Page</div>;
+  return (
+    <LaunchesContextProvider>
+      <Navbar />
+      <Home />
+    </LaunchesContextProvider>
+  );
 };
 
 export default HomePage;
