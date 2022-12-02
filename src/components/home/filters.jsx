@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FiSearch } from "react-icons/fi";
 
 import LaunchesContext from "../../store/launches-context";
 
@@ -14,7 +15,14 @@ const Filters = () => {
 
   return (
     <div className={classes.filters}>
-      <input value={launchContext.filter} onChange={onChangeFilter} />
+      <div className={classes.name}>
+        <FiSearch />
+        <input
+          placeholder="Search all launches..."
+          value={launchContext.filter}
+          onChange={onChangeFilter}
+        />
+      </div>
     </div>
   );
 };
