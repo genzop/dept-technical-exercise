@@ -18,20 +18,22 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.title}>Launches</div>
-      <ul className={classes.menu}>
-        {sections.map((section, index) => (
-          <li
-            key={index}
-            onClick={() => onClickSection(section)}
-            className={`${classes.section} ${
-              section.value === launchContext.section ? classes.active : ""
-            }`}
-          >
-            {section.text}
-          </li>
-        ))}
-      </ul>
+      <div className={classes.container}>
+        <div className={classes.title}>Launches</div>
+        <ul className={classes.menu}>
+          {sections.map((section, index) => (
+            <li
+              key={index}
+              onClick={() => onClickSection(section)}
+              className={`${classes.section} ${
+                section.value === launchContext.section ? classes.active : ""
+              }`}
+            >
+              {section.text}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

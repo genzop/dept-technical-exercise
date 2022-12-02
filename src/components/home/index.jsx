@@ -7,8 +7,6 @@ import Header from "./header";
 import Filters from "./filters";
 import LaunchList from "./launch-list";
 
-import classes from "./index.module.scss";
-
 const Home = () => {
   const launchContext = useContext(LaunchesContext);
 
@@ -22,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={classes.home}>
+    <div>
       <Header />
       <Filters />
       <LaunchList />

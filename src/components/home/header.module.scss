@@ -1,29 +1,42 @@
 .header {
-  .title {
-    font-size: 30px;
-    margin-bottom: 30px;
-  }
+  background: linear-gradient(180deg, #121212 64.11%, #1e1e1e 100%);
 
-  .menu {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    border-bottom: 1px solid black;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 0;
 
-    .section {
-      padding: 10px;
-      cursor: pointer;
-      margin-bottom: -3px;
-      text-align: center;
-      letter-spacing: 0.15px;
-      text-transform: uppercase;
-      color: #020202;
-      font-weight: 600;
-      width: 120px;
+    .title {
+      font-family: "Roboto Condensed", sans-serif;
+      font-weight: 500;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
 
-      &.active {
-        border-bottom: 3px solid black;
+    .menu {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      border-bottom: 3px solid transparent;
+
+      .section {
+        padding: 10px;
+        cursor: pointer;
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 300;
+        margin-bottom: -3px;
+        text-align: center;
+        letter-spacing: 0.15px;
+        color: rgba(255, 255, 255, 0.57);
+        width: 140px;
+
+        &.active {
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.87);
+          border-bottom: 3px solid rgba(255, 255, 255, 0.87);
+        }
       }
     }
   }
