@@ -17,7 +17,7 @@ const LaunchList = () => {
       (x) =>
         (launchContext.section === "all" || x.favourite) &&
         (launchContext.filter === "" ||
-          x.mission_name.includes(launchContext.filter))
+          x.mission_name.toLowerCase().includes(launchContext.filter))
     );
 
     setList(nList);
