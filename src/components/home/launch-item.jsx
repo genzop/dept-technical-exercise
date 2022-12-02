@@ -17,7 +17,12 @@ const LaunchItem = (props) => {
 
   return (
     <div className={classes.launchItem}>
-      <div className={classes.image}></div>
+      <div
+        className={classes.image}
+        style={{
+          backgroundImage: `url(${item.rocket.image})`,
+        }}
+      ></div>
       <div className={classes.data}>
         <div className={classes.name}>{item.mission_name}</div>
         <div className={classes.details}>{item.details}</div>

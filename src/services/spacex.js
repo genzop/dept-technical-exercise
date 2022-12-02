@@ -54,6 +54,7 @@ export const getLaunches = async () => {
         active: rocket.active,
         cost_per_launch: rocket.cost_per_launch,
         company: rocket.company,
+        image: rocket.flickr_images[0],
       },
     };
 
