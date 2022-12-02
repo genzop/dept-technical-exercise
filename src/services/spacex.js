@@ -39,7 +39,7 @@ export const getLaunches = async () => {
     let favourites = localStorage.getItem("favourites");
     favourites = !favourites ? [] : JSON.parse(favourites);
 
-    const favoriteIndex = favourites.indexOf(launch.flight_number);
+    const favouriteIndex = favourites.indexOf(launch.flight_number);
 
     const temp = {
       flight_number: launch.flight_number,
@@ -47,7 +47,7 @@ export const getLaunches = async () => {
       launch_date_unix: launch.launch_date_unix,
       details: launch.details,
       mission_patch: launch.links.mission_patch,
-      favourite: favoriteIndex > -1,
+      favourite: favouriteIndex > -1,
       rocket: {
         rocket_id: rocket.rocket_id,
         rocket_name: rocket.rocket_name,

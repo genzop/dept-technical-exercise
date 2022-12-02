@@ -9,7 +9,7 @@ const Header = () => {
 
   const sections = [
     { value: "all", text: "All" },
-    { value: "favourites", text: "Favorites" },
+    { value: "favourites", text: "Favourites" },
   ];
 
   const onClickSection = (section) => {
