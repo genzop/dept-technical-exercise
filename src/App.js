@@ -1,22 +1,15 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import "./styles/globals.scss";
 import HomePage from "./pages/home";
-import LaunchPage from "./pages/launch";
+
+import "./styles/globals.scss";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <HomePage />,
-    },
-    {
-      path: "/launch/:launchId",
-      element: <LaunchPage />,
-      loader: async ({ request, params }) => {
-        return params;
-      },
     },
   ]);
 
