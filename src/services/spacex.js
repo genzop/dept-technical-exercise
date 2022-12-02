@@ -36,12 +36,18 @@ export const getLaunches = async () => {
     const launch = launchesRaw[i];
     const rocket = rockets[launch.rocket.rocket_id];
 
+    let favourites = localStorage.getItem("favourites");
+    favourites = !favourites ? [] : JSON.parse(favourites);
+
+    const favoriteIndex = favourites.indexOf(launch.flight_number);
+
     const temp = {
       flight_number: launch.flight_number,
       mission_name: launch.mission_name,
       launch_date_unix: launch.launch_date_unix,
       details: launch.details,
       mission_patch: launch.links.mission_patch,
+      favourite: favoriteIndex > -1,
       rocket: {
         rocket_id: rocket.rocket_id,
         rocket_name: rocket.rocket_name,

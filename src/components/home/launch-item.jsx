@@ -11,13 +11,8 @@ const LaunchItem = (props) => {
 
   const launchContext = useContext(LaunchesContext);
 
-  const [favourite, setFavourite] = useState(
-    launchContext.isFavourite(item.flight_number)
-  );
-
   const onClickFavourite = () => {
-    setFavourite(!favourite);
-    launchContext.toggleFavourite(item.flight_number, !favourite);
+    launchContext.toggleFavourite(item);
   };
 
   return (
@@ -31,8 +26,8 @@ const LaunchItem = (props) => {
             {unixDateToString(item.launch_date_unix)}
           </div>
           <div className={classes.favourite} onClick={onClickFavourite}>
-            {!favourite && <BsStar />}
-            {favourite && <BsStarFill />}
+            {!item.favourite && <BsStar />}
+            {item.favourite && <BsStarFill />}
           </div>
         </div>
       </div>

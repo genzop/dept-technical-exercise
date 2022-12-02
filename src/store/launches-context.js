@@ -8,8 +8,7 @@ const LaunchesContext = createContext({
   updateSection: (value) => {},
   updateFilter: (value) => {},
   updateList: (value) => {},
-  isFavourite: (flightNumber) => {},
-  toggleFavourite: (flightNumber, isFavourite) => {},
+  toggleFavourite: (value) => {},
 });
 
 export function LaunchesContextProvider(props) {
@@ -33,32 +32,25 @@ export function LaunchesContextProvider(props) {
     setTotal(value.length);
   };
 
-  const isFavourite = (flightNumber) => {
+  const toggleFavourite = (value) => {
     let saved = localStorage.getItem("favourites");
     saved = !saved ? [] : JSON.parse(saved);
 
-    const index = saved.indexOf(flightNumber);
-    if (index > -1) {
-      return true;
+    const favouriteIndex = saved.indexOf(value.flight_number);
+    if (favouriteIndex > -1) {
+      saved.splice(favouriteIndex, 1);
     }
 
-    return false;
-  };
-
-  const toggleFavourite = (flightNumber, isFavourite) => {
-    let saved = localStorage.getItem("favourites");
-    saved = !saved ? [] : JSON.parse(saved);
-
-    const index = saved.indexOf(flightNumber);
-    if (index > -1) {
-      saved.splice(index, 1);
-    }
-
-    if (isFavourite) {
-      saved.push(flightNumber);
+    if (!value.favourite) {
+      saved.push(value.flight_number);
     }
 
     localStorage.setItem("favourites", JSON.stringify(saved));
+
+    let nList = [...list];
+    const index = nList.indexOf(value);
+    nList[index].favourite = !nList[index].favourite;
+    setList(nList);
   };
 
   const context = {
@@ -69,7 +61,6 @@ export function LaunchesContextProvider(props) {
     updateSection: updateSection,
     updateFilter: updateFilter,
     updateList: updateList,
-    isFavourite: isFavourite,
     toggleFavourite: toggleFavourite,
   };
 
