@@ -13,7 +13,27 @@
     column-gap: 41px;
 
     > * {
-      width: calc(33% - 24px);
+      width: calc(33% - 25px);
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .launchList {
+    .list {
+      > * {
+        width: calc(50% - 24px);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .launchList {
+    .list {
+      > * {
+        width: 100%;
+      }
     }
   }
 }
